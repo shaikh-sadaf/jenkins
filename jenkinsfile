@@ -21,26 +21,6 @@ pipeline{
                 echo "branch is not master"
             }
         }
-        stage('four'){
-            parallel {
-                stage('unit test'){
-                     steps{
-                         echo "running unit testing....."
-                    }
-                }
-                stage('integration testing'){
-                    agent {
-                        docker {
-                            reuseNode false
-                            image 'ubuntu'
-                        }
-                        steps{
-                            echo "running  the integration testing...."
-                        }
-                    }
-                }
-            }
-
-        }
+        
     }
 }
